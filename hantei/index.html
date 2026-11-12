@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>これってPON？判定シート｜尾幡りあん</title>
+<meta name="description" content="13の行動を「PON」「PONじゃないけど心配」「PONじゃない」で判定。埋めたシートは画像で保存できます。">
+<meta property="og:title" content="これってPON？判定シート">
+<meta property="og:description" content="りあんと一緒に埋めてみよう！埋めたシートは画像で保存できます。">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#D6EEFA; --card:#FFFFFF; --accent:#1479B8; --ink:#0B3C5D;
+    --soft:#EAF6FC; --line:#9CCFEA; --sub:#0F5F94;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:'M PLUS Rounded 1c',sans-serif;-webkit-text-size-adjust:100%}
+  .wrap{max-width:560px;margin:0 auto;padding:16px 12px 48px}
+  .card{background:var(--card);border:4px solid var(--accent);border-radius:28px;padding:20px 16px}
+  header{display:flex;align-items:center;gap:10px}
+  header img{width:42%;max-width:210px;height:auto;flex-shrink:0}
+  .pill{display:inline-block;background:var(--accent);color:#fff;font-weight:800;white-space:nowrap;
+    font-size:12px;letter-spacing:.02em;padding:5px 10px;border-radius:999px}
+  h1{margin:6px 0 0;font-family:'Dela Gothic One',sans-serif;font-weight:400;line-height:1.05;font-size:28px}
+  h1 .pon{display:block;color:var(--accent);font-size:60px}
+  h1 .sheet{display:block;font-size:24px;letter-spacing:.25em;margin-top:2px}
+  .name{margin-top:18px;display:flex;align-items:center;gap:8px;font-weight:800}
+  .name label{flex-shrink:0}
+  .name input{flex:1;min-width:0;font:inherit;font-size:18px;color:var(--ink);
+    border:3px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--soft)}
+  .name input:focus{outline:none;border-color:var(--accent)}
+  .legend{margin-top:14px;background:var(--soft);border-radius:14px;padding:10px 12px;
+    font-weight:800;font-size:15px;line-height:1.7}
+  .legend b{color:var(--accent)}
+  ol{list-style:none;margin:14px 0 0;padding:0}
+  li{border-bottom:3px dotted var(--line);padding:12px 2px 14px}
+  .q{display:flex;gap:8px;font-weight:700;font-size:17px;line-height:1.45}
+  .no{font-family:'Dela Gothic One',sans-serif;color:var(--accent);font-size:20px;flex-shrink:0;width:30px}
+  .opts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}
+  .opts button{font:inherit;font-weight:800;font-size:13px;line-height:1.25;color:var(--accent);
+    background:#fff;border:3px solid var(--accent);border-radius:12px;min-height:52px;padding:6px 4px;cursor:pointer}
+  .opts button .n{display:block;font-family:'Dela Gothic One',sans-serif;font-size:18px;font-weight:400}
+  .opts button[aria-pressed="true"]{background:var(--accent);color:#fff}
+  .status{margin-top:18px;text-align:center;font-weight:800;color:var(--sub)}
+  .result{margin-top:16px;background:var(--accent);color:#fff;border-radius:20px;padding:18px 16px;text-align:center}
+  .result .count{font-weight:800;font-size:15px}
+  .result .title{font-family:'Dela Gothic One',sans-serif;font-size:38px;margin:4px 0 6px}
+  .result .desc{font-weight:700;font-size:15px;line-height:1.6}
+  .actions{margin-top:16px;display:grid;gap:10px}
+  .btn{font:inherit;font-weight:800;font-size:17px;border-radius:999px;min-height:52px;cursor:pointer;
+    border:3px solid var(--accent);background:var(--accent);color:#fff}
+  .btn.ghost{background:#fff;color:var(--accent)}
+  .btn:disabled{opacity:.45;cursor:default}
+  .preview{margin-top:16px;text-align:center}
+  .preview img{width:100%;border-radius:14px;border:3px solid var(--line)}
+  .preview p{font-weight:700;font-size:14px;color:var(--sub);margin:8px 0 0}
+  footer{margin-top:18px;text-align:center;font-weight:800;color:var(--sub);letter-spacing:.06em;font-size:14px}
+  [hidden]{display:none !important}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <main class="card">
+    <header>
+      <img src="rian.png" alt="あわてるりあん" width="600" height="522">
+      <div>
+        <span class="pill">りあんと一緒に埋めてみよう！</span>
+        <h1>これって<span class="pon">PON？</span><span class="sheet">判定シート</span></h1>
+      </div>
+    </header>
+
+    <div class="name">
+      <label for="name">なまえ</label>
+      <input id="name" type="text" maxlength="12" placeholder="（なくてもOK）" autocomplete="nickname">
+    </div>
+
+    <div class="legend">
+      <b>①</b> PON<br>
+      <b>②</b> PONじゃないけど心配<br>
+      <b>③</b> PONじゃない
+    </div>
+
+    <ol id="list"></ol>
+
+    <div class="status" id="status"></div>
+
+    <section class="result" id="result" hidden aria-live="polite">
+      <div class="count" id="rCount"></div>
+      <div class="title" id="rTitle"></div>
+      <div class="desc" id="rDesc"></div>
+    </section>
+
+    <div class="actions">
+      <button class="btn" id="save" disabled>画像で保存する</button>
+      <button class="btn ghost" id="reset">さいしょからやり直す</button>
+    </div>
+
+    <div class="preview" id="preview" hidden>
+      <img id="previewImg" alt="埋めた判定シートの画像">
+      <p>保存できないときは、この画像を長押しして保存してください</p>
+    </div>
+  </main>
+  <footer>尾幡りあん / LiAn</footer>
+</div>
+
+<script>
+(function(){
+  var ITEMS = [
+    '家の鍵を閉めたか不安で、一度戻る',
+    'スマホを手に持ったまま、スマホを探す',
+    'メガネを頭に乗せたまま、メガネを探す',
+    '冷蔵庫を開けて、何を取りに来たか忘れる',
+    '洗濯機を回したのを忘れて、一晩放置する',
+    '同じ本や漫画を2冊買ってしまう',
+    '送ったメッセージの誤字に、送信後に気づく',
+    '広い駐車場で、自分の車を見失う',
+    '傘をさして来たのに、手ぶらで帰る',
+    'レンジで温めたのを忘れて、翌日見つける',
+    'ポイントカードを持っているのに、出し忘れる',
+    '自動ドアが反応してくれない',
+    'お弁当を作ったのに、持っていくのを忘れる'
+  ];
+  var OPTS = [
+    {n:'①', t:'PON'},
+    {n:'②', t:'PONじゃない<br>けど心配'},
+    {n:'③', t:'PONじゃない'}
+  ];
+  // 判定は③（PONじゃない）の数
+  var TIERS = [
+    {min:0,  max:2,  title:'PON取締官',       desc:['PONは見逃さない。あなたが近くにいる限り、','鍵の閉め忘れは起きない。']},
+    {min:3,  max:5,  title:'しっかり者の保護者', desc:['「もう〜」と言いつつ、','結局フォローしてくれる人。']},
+    {min:6,  max:9,  title:'やさしい見守り隊',   desc:['多少のことは笑って流せる。','一緒にいてラクなタイプ。']},
+    {min:10, max:13, title:'PONの民',          desc:['もはや同類。','ようこそ、こちら側へ。']}
+  ];
+
+  var answers = new Array(ITEMS.length).fill(null);
+  var list = document.getElementById('list');
+
+  ITEMS.forEach(function(text, i){
+    var li = document.createElement('li');
+    var no = (i < 9 ? '0' : '') + (i + 1);
+    li.innerHTML = '<div class="q"><span class="no">' + no + '</span><span>' + text + '</span></div>' +
+      '<div class="opts" role="group" aria-label="' + no + 'の判定"></div>';
+    var box = li.querySelector('.opts');
+    OPTS.forEach(function(o, k){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-pressed', 'false');
+      b.innerHTML = '<span class="n">' + o.n + '</span>' + o.t;
+      b.addEventListener('click', function(){
+        answers[i] = k;
+        box.querySelectorAll('button').forEach(function(x, j){
+          x.setAttribute('aria-pressed', j === k ? 'true' : 'false');
+        });
+        update();
+      });
+      box.appendChild(b);
+    });
+    list.appendChild(li);
+  });
+
+  function tierFor(c){
+    for (var i = 0; i < TIERS.length; i++) if (c >= TIERS[i].min && c <= TIERS[i].max) return TIERS[i];
+    return TIERS[0];
+  }
+
+  function update(){
+    var left = answers.filter(function(a){ return a === null; }).length;
+    var done = left === 0;
+    document.getElementById('status').textContent = done ? '' : 'あと ' + left + ' 問';
+    document.getElementById('result').hidden = !done;
+    document.getElementById('save').disabled = !done;
+    document.getElementById('preview').hidden = true;
+    if (done){
+      var c = answers.filter(function(a){ return a === 2; }).length;
+      var t = tierFor(c);
+      document.getElementById('rCount').textContent = '③「PONじゃない」は ' + c + ' 個';
+      document.getElementById('rTitle').textContent = t.title;
+      document.getElementById('rDesc').innerHTML = t.desc.join('<br>');
+    }
+  }
+  update();
+
+  document.getElementById('name').addEventListener('input', function(){
+    document.getElementById('preview').hidden = true;
+  });
+
+  document.getElementById('reset').addEventListener('click', function(){
+    answers.fill(null);
+    document.querySelectorAll('.opts button').forEach(function(b){ b.setAttribute('aria-pressed','false'); });
+    update();
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  // ---------- 画像生成 ----------
+  var C = {bg:'#D6EEFA', card:'#FFFFFF', accent:'#1479B8', ink:'#0B3C5D', soft:'#EAF6FC', line:'#9CCFEA', sub:'#0F5F94'};
+  var DELA = "'Dela Gothic One', sans-serif";
+  var MARU = "'M PLUS Rounded 1c', sans-serif";
+
+  function rr(ctx, x, y, w, h, r){
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r);
+    ctx.closePath();
+  }
+
+  function loadImg(src){
+    return new Promise(function(res, rej){
+      var im = new Image();
+      im.onload = function(){ res(im); };
+      im.onerror = rej;
+      im.src = src;
+    });
+  }
+
+  function fontsReady(name){
+    var all = ITEMS.join('') + TIERS.map(function(t){ return t.title + t.desc.join(''); }).join('') +
+      'りあんと一緒に埋めてみよう！これってPON？判定シートなまえ①②③PONじゃないけど心配「」個は0123456789尾幡りあん/LiAn' + name;
+    if (!document.fonts || !document.fonts.load) return Promise.resolve();
+    return Promise.all([
+      document.fonts.load('400 40px "Dela Gothic One"', all),
+      document.fonts.load('700 28px "M PLUS Rounded 1c"', all),
+      document.fonts.load('800 28px "M PLUS Rounded 1c"', all)
+    ]).catch(function(){});
+  }
+
+  function draw(img, name){
+    var W = 1200, H = 1800;
+    var cv = document.createElement('canvas');
+    cv.width = W; cv.height = H;
+    var ctx = cv.getContext('2d');
+
+    ctx.fillStyle = C.bg; ctx.fillRect(0, 0, W, H);
+    rr(ctx, 40, 40, W - 80, H - 80, 40);
+    ctx.fillStyle = C.card; ctx.fill();
+    ctx.lineWidth = 6; ctx.strokeStyle = C.accent; ctx.stroke();
+
+    // ヘッダー
+    var iw = 340, ih = Math.round(iw * img.height / img.width);
+    ctx.drawImage(img, 90, 80, iw, ih);
+    var tx = 460;
+    ctx.textBaseline = 'alphabetic';
+    ctx.font = '800 24px ' + MARU;
+    var pill = 'りあんと一緒に埋めてみよう！';
+    var pw = ctx.measureText(pill).width + 56;
+    rr(ctx, tx, 92, pw, 46, 23); ctx.fillStyle = C.accent; ctx.fill();
+    ctx.fillStyle = '#fff'; ctx.fillText(pill, tx + 28, 124);
+    ctx.fillStyle = C.ink; ctx.font = '400 60px ' + DELA; ctx.fillText('これって', tx, 214);
+    ctx.fillStyle = C.accent; ctx.font = '400 128px ' + DELA; ctx.fillText('PON？', tx - 6, 342);
+    ctx.fillStyle = C.ink; ctx.font = '400 50px ' + DELA;
+    if ('letterSpacing' in ctx){ ctx.letterSpacing = '14px'; }
+    ctx.fillText('判定シート', tx, 410);
+    if ('letterSpacing' in ctx){ ctx.letterSpacing = '0px'; }
+
+    // なまえ
+    var ny = 486;
+    ctx.font = '800 30px ' + MARU; ctx.fillStyle = C.sub;
+    ctx.fillText('なまえ', 110, ny);
+    ctx.font = '800 38px ' + MARU; ctx.fillStyle = C.ink;
+    ctx.fillText(name || '', 230, ny);
+    ctx.strokeStyle = C.line; ctx.lineWidth = 4;
+    ctx.beginPath(); ctx.moveTo(220, ny + 14); ctx.lineTo(W - 110, ny + 14); ctx.stroke();
+
+    // 凡例
+    rr(ctx, 100, 530, W - 200, 62, 18); ctx.fillStyle = C.soft; ctx.fill();
+    ctx.font = '800 26px ' + MARU;
+    var leg = [['①',' PON'],['②',' PONじゃないけど心配'],['③',' PONじゃない']];
+    var widths = leg.map(function(l){ return ctx.measureText(l[0] + l[1]).width; });
+    var gap = 44, total = widths.reduce(function(a,b){return a+b;},0) + gap * 2;
+    var lx = (W - total) / 2;
+    leg.forEach(function(l, k){
+      ctx.fillStyle = C.accent; ctx.fillText(l[0], lx, 571);
+      ctx.fillStyle = C.ink; ctx.fillText(l[1], lx + ctx.measureText(l[0]).width, 571);
+      lx += widths[k] + gap;
+    });
+
+    // 列見出し
+    var bx = [880, 960, 1040], bs = 44;
+    ctx.font = '400 28px ' + DELA; ctx.fillStyle = C.accent; ctx.textAlign = 'center';
+    ['①','②','③'].forEach(function(s, k){ ctx.fillText(s, bx[k] + bs / 2, 636); });
+    ctx.textAlign = 'left';
+
+    // 項目
+    var y0 = 650, rh = 56;
+    ITEMS.forEach(function(text, i){
+      var y = y0 + i * rh;
+      var mid = y + rh / 2;
+      ctx.font = '400 32px ' + DELA; ctx.fillStyle = C.accent;
+      ctx.fillText((i < 9 ? '0' : '') + (i + 1), 110, mid + 12);
+      ctx.font = '700 27px ' + MARU; ctx.fillStyle = C.ink;
+      ctx.fillText(text, 180, mid + 10);
+      bx.forEach(function(x, k){
+        rr(ctx, x, mid - bs / 2, bs, bs, 9);
+        if (answers[i] === k){
+          ctx.fillStyle = C.accent; ctx.fill();
+          ctx.strokeStyle = '#fff'; ctx.lineWidth = 6; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+          ctx.beginPath();
+          ctx.moveTo(x + 10, mid + 1); ctx.lineTo(x + 19, mid + 10); ctx.lineTo(x + 34, mid - 9);
+          ctx.stroke();
+        } else {
+          ctx.lineWidth = 4; ctx.strokeStyle = C.accent; ctx.stroke();
+        }
+      });
+      ctx.setLineDash([3, 9]); ctx.lineCap = 'round';
+      ctx.strokeStyle = C.line; ctx.lineWidth = 4;
+      ctx.beginPath(); ctx.moveTo(110, y + rh); ctx.lineTo(W - 110, y + rh); ctx.stroke();
+      ctx.setLineDash([]);
+    });
+
+    // 判定結果
+    var c = answers.filter(function(a){ return a === 2; }).length;
+    var t = tierFor(c);
+    var ry = y0 + ITEMS.length * rh + 36;
+    var rhgt = 250;
+    rr(ctx, 100, ry, W - 200, rhgt, 28); ctx.fillStyle = C.accent; ctx.fill();
+    ctx.fillStyle = '#fff'; ctx.textAlign = 'center';
+    ctx.font = '800 28px ' + MARU;
+    ctx.fillText('判定結果　③「PONじゃない」は ' + c + ' 個', W / 2, ry + 52);
+    ctx.font = '400 64px ' + DELA;
+    ctx.fillText(t.title, W / 2, ry + 136);
+    ctx.font = '700 26px ' + MARU;
+    ctx.fillText(t.desc[0], W / 2, ry + 188);
+    ctx.fillText(t.desc[1], W / 2, ry + 226);
+
+    // フッター
+    ctx.font = '800 24px ' + MARU; ctx.fillStyle = C.sub; ctx.textAlign = 'right';
+    ctx.fillText('尾幡りあん / LiAn', W - 110, H - 86);
+    ctx.textAlign = 'left';
+    return cv;
+  }
+
+  function toBlob(cv){
+    return new Promise(function(res){
+      if (cv.toBlob) cv.toBlob(res, 'image/png');
+      else res(null);
+    });
+  }
+
+  var saveBtn = document.getElementById('save');
+  saveBtn.addEventListener('click', function(){
+    var name = document.getElementById('name').value.trim().slice(0, 12);
+    saveBtn.disabled = true;
+    saveBtn.textContent = '画像をつくっています…';
+    Promise.all([fontsReady(name), loadImg('rian.png')]).then(function(r){
+      var cv = draw(r[1], name);
+      var url = cv.toDataURL('image/png');
+      var pimg = document.getElementById('previewImg');
+      pimg.src = url;
+      document.getElementById('preview').hidden = false;
+      return toBlob(cv).then(function(blob){
+        var fname = 'PON判定シート.png';
+        if (blob && navigator.canShare && window.File){
+          var file = new File([blob], fname, {type:'image/png'});
+          if (navigator.canShare({files:[file]})){
+            return navigator.share({files:[file]}).catch(function(){});
+          }
+        }
+        var a = document.createElement('a');
+        a.href = blob ? URL.createObjectURL(blob) : url;
+        a.download = fname;
+        document.body.appendChild(a); a.click(); a.remove();
+      });
+    }).catch(function(){
+      alertBox();
+    }).then(function(){
+      saveBtn.disabled = false;
+      saveBtn.textContent = '画像で保存する';
+      document.getElementById('preview').scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+
+  function alertBox(){
+    document.getElementById('status').textContent = '画像をつくれませんでした。ページを読み込み直して試してください。';
+  }
+})();
+</script>
+</body>
+</html>
